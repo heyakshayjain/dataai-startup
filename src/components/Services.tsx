@@ -1,4 +1,4 @@
-import { ChartBar, Brain, Database, Cog } from "lucide-react";
+import { ChartBar, Brain, Database, Cog, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
