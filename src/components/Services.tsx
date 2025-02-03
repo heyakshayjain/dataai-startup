@@ -1,4 +1,4 @@
-import { ChartBar, Brain, Database, Cog, ArrowRight } from "lucide-react";
+import { ChartBar, Brain, Database, Cog } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const services = [
@@ -26,30 +26,24 @@ const services = [
 
 const Services = () => {
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">Our Services</h2>
-          <p className="text-text/80 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Our Services</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
             Comprehensive data and AI solutions tailored to your business needs
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Card key={service.title} className="group hover:shadow-lg transition-shadow duration-300">
+            <Card key={service.title} className="group hover:shadow-lg transition-shadow duration-300 border border-slate-200">
               <CardHeader>
-                <div className="h-12 w-12 rounded-lg bg-primary/5 flex items-center justify-center group-hover:bg-primary/10 transition-colors mb-4">
-                  <service.icon className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors mb-4">
+                  <service.icon className="h-6 w-6 text-blue-600" />
                 </div>
-                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                <CardDescription>{service.description}</CardDescription>
+                <CardTitle className="text-xl mb-2 text-slate-900">{service.title}</CardTitle>
+                <CardDescription className="text-slate-600">{service.description}</CardDescription>
               </CardHeader>
-              <CardContent>
-                <a href="#" className="text-primary hover:text-primary-light transition-colors inline-flex items-center">
-                  Learn more
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </a>
-              </CardContent>
             </Card>
           ))}
         </div>
