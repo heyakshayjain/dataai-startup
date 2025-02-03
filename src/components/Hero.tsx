@@ -1,5 +1,6 @@
 import { ArrowRight, Brain, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -19,10 +20,12 @@ const Hero = () => {
             and make data-driven decisions for your business.
           </p>
           <div className="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4 animate-fade-in delay-300">
-            <Button size="lg" className="group">
-              Get Started
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link to="/contact">
+              <Button size="lg" className="group">
+                Book a Meeting
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
             <Button size="lg" variant="outline">
               Learn More
             </Button>
