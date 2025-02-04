@@ -1,4 +1,4 @@
-import { Check, FileSearch, FileText, HandshakeIcon, Code, TestTube2, Headphones } from "lucide-react";
+import { Check, FileSearch, FileText, HandshakeIcon, Code, TestTube2, Headphones, ArrowRight } from "lucide-react";
 
 const Process = () => {
   const steps = [
@@ -49,19 +49,26 @@ const Process = () => {
           </p>
         </div>
         
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in"
-            >
-              <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                {step.icon}
+        <div className="relative">
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-blue-200 -translate-y-1/2" />
+          <div className="grid gap-8 lg:grid-cols-7">
+            {steps.map((step, index) => (
+              <div key={index} className="relative">
+                <div className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in z-10 relative">
+                  <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">{step.title}</h3>
+                  <p className="text-slate-600">{step.description}</p>
+                </div>
+                {index < steps.length - 1 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-4 text-blue-400 z-20">
+                    <ArrowRight className="w-8 h-8" />
+                  </div>
+                )}
               </div>
-              <h3 className="text-xl font-semibold text-slate-900 mb-2">{step.title}</h3>
-              <p className="text-slate-600">{step.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
