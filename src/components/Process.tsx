@@ -1,41 +1,26 @@
-import { Check, FileSearch, FileText, HandshakeIcon, Code, TestTube2, Headphones, ArrowRight } from "lucide-react";
+import { FileSearch, FileText, Code, TestTube2, ArrowRight } from "lucide-react";
 
 const Process = () => {
   const steps = [
     {
       icon: <FileSearch className="w-12 h-12 text-blue-600" />,
-      title: "Free Initial Consultation",
-      description: "Start with a FREE consultation to discuss your project goals",
+      title: "Free Consultation",
+      description: "Start with a FREE consultation to discuss your project goals and requirements",
     },
     {
       icon: <FileText className="w-12 h-12 text-blue-600" />,
-      title: "Requirement Gathering & Refinement",
-      description: "Detailed collection and refinement of project requirements",
-    },
-    {
-      icon: <Check className="w-12 h-12 text-blue-600" />,
-      title: "Proposal Preparation",
-      description: "Custom proposal outlining the perfect solution for you",
-    },
-    {
-      icon: <HandshakeIcon className="w-12 h-12 text-blue-600" />,
-      title: "Agreement Signing",
-      description: "Formalize our partnership with a clear agreement",
+      title: "Planning & Proposal",
+      description: "Detailed requirement gathering and custom proposal preparation",
     },
     {
       icon: <Code className="w-12 h-12 text-blue-600" />,
-      title: "Development & Implementation",
-      description: "Expert development and seamless integration",
+      title: "Development",
+      description: "Expert development and seamless integration of your solution",
     },
     {
       icon: <TestTube2 className="w-12 h-12 text-blue-600" />,
-      title: "Testing & Optimization",
-      description: "Thorough testing and performance optimization",
-    },
-    {
-      icon: <Headphones className="w-12 h-12 text-blue-600" />,
-      title: "Final Delivery & Support",
-      description: "Solution delivery with ongoing support",
+      title: "Delivery & Support",
+      description: "Thorough testing, optimization, and ongoing support",
     },
   ];
 
@@ -49,12 +34,12 @@ const Process = () => {
           </p>
         </div>
         
-        <div className="relative">
+        <div className="relative max-w-5xl mx-auto">
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-blue-200 -translate-y-1/2" />
-          <div className="grid gap-8 lg:grid-cols-7">
+          <div className="grid gap-8 lg:grid-cols-4">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in z-10 relative">
+                <div className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in z-10 relative h-full">
                   <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {step.icon}
                   </div>

@@ -11,6 +11,7 @@ const blogPosts = [
     excerpt: "Explore how modern data engineering practices are evolving with the rise of AI and machine learning.",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
     date: "March 15, 2024",
+    content: "Full blog post content about the future of data engineering...",
     slug: "future-of-data-engineering"
   },
   {
@@ -18,6 +19,7 @@ const blogPosts = [
     excerpt: "Learn how businesses are leveraging AI to drive growth and optimize operations across different sectors.",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
     date: "March 10, 2024",
+    content: "Full blog post content about maximizing business value with AI...",
     slug: "maximizing-business-value-with-ai"
   },
   {
@@ -25,6 +27,7 @@ const blogPosts = [
     excerpt: "Understanding the importance of data security and best practices for protecting sensitive information.",
     image: "https://images.unsplash.com/photo-1518770660439-4636190af475",
     date: "March 5, 2024",
+    content: "Full blog post content about data security in the AI era...",
     slug: "data-security-in-ai-era"
   },
 ];
@@ -35,7 +38,7 @@ const Blog = () => {
       <Header />
       <main className="container mx-auto px-4 pt-32 pb-16">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl font-bold text-slate-900 mb-8">Blog</h1>
+          <h1 className="text-4xl font-bold text-slate-900 mb-8">Latest Insights</h1>
           
           <div className="grid gap-8">
             {blogPosts.map((post, index) => (
@@ -52,12 +55,17 @@ const Blog = () => {
                     <div className="text-sm text-slate-600 mb-2">{post.date}</div>
                     <h2 className="text-2xl font-semibold text-slate-900 mb-3">{post.title}</h2>
                     <p className="text-slate-600 mb-4">{post.excerpt}</p>
-                    <Link to={`/blog/${post.slug}`}>
-                      <Button variant="outline" className="group">
-                        Read More
-                        <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
-                    </Link>
+                    <Button 
+                      variant="outline" 
+                      className="group hover:bg-blue-50"
+                      onClick={() => {
+                        // For now, we'll show an alert since we don't have individual blog post pages yet
+                        alert("Full blog post functionality coming soon!");
+                      }}
+                    >
+                      Read More
+                      <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </Button>
                   </CardContent>
                 </div>
               </Card>
