@@ -1,4 +1,4 @@
-import { FileSearch, FileText, Code, TestTube2, ArrowRight } from "lucide-react";
+import { FileSearch, FileText, Code, TestTube2 } from "lucide-react";
 
 const Process = () => {
   const steps = [
@@ -35,21 +35,24 @@ const Process = () => {
         </div>
         
         <div className="relative max-w-5xl mx-auto">
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-blue-200 -translate-y-1/2" />
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 -translate-y-1/2" />
+          
           <div className="grid gap-8 lg:grid-cols-4">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in z-10 relative h-full">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-blue-600 rounded-full hidden lg:block" />
+                <div className="group bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 animate-fade-in z-10 relative">
                   <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
                     {step.icon}
                   </div>
                   <h3 className="text-xl font-semibold text-slate-900 mb-2">{step.title}</h3>
                   <p className="text-slate-600">{step.description}</p>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white hidden lg:block" />
                 </div>
-                {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-1/2 -right-4 text-blue-400 z-20">
-                    <ArrowRight className="w-8 h-8" />
-                  </div>
+                {index % 2 === 0 ? (
+                  <div className="hidden lg:block absolute top-full left-1/2 h-8 w-px bg-blue-300" />
+                ) : (
+                  <div className="hidden lg:block absolute bottom-full left-1/2 h-8 w-px bg-blue-300" />
                 )}
               </div>
             ))}
