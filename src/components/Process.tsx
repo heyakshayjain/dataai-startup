@@ -1,5 +1,5 @@
 
-import { CircleCheck, FileSearch, FileText, Code, TestTube2, FileSignature, HandshakeIcon, HeartHandshake } from "lucide-react";
+import { FileSearch, FileText, Code, TestTube2, FileSignature, HeartHandshake, HandshakeIcon } from "lucide-react";
 
 const Process = () => {
   const steps = [
@@ -22,13 +22,13 @@ const Process = () => {
       phase: "Phase 3",
     },
     {
-      icon: <Code className="w-12 h-12 text-blue-600" />,
+      icon: <TestTube2 className="w-12 h-12 text-blue-600" />,
       title: "Development",
       description: "Start coding, develop the solution, and integrate seamlessly",
       phase: "Phase 4",
     },
     {
-      icon: <TestTube2 className="w-12 h-12 text-blue-600" />,
+      icon: <Code className="w-12 h-12 text-blue-600" />,
       title: "Testing & Optimization",
       description: "Thoroughly test and optimize for robust performance",
       phase: "Phase 5",
@@ -60,7 +60,11 @@ const Process = () => {
             {steps.map((step, index) => (
               <div 
                 key={index} 
-                className={`relative ${index % 2 === 0 ? 'lg:translate-y-12' : ''}`}
+                className={`relative ${
+                  index % 3 === 0 ? 'lg:-translate-y-8' : 
+                  index % 3 === 1 ? '' : 
+                  'lg:translate-y-8'
+                }`}
               >
                 {/* Connection dot */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 hidden lg:block">
@@ -83,10 +87,12 @@ const Process = () => {
                 </div>
 
                 {/* Vertical connection lines */}
-                {index % 2 === 0 ? (
-                  <div className="hidden lg:block absolute top-0 left-1/2 h-12 w-px bg-blue-300 -translate-x-1/2" />
+                {index % 3 === 0 ? (
+                  <div className="hidden lg:block absolute top-0 left-1/2 h-8 w-px bg-blue-300 -translate-x-1/2" />
+                ) : index % 3 === 1 ? (
+                  null
                 ) : (
-                  <div className="hidden lg:block absolute bottom-0 left-1/2 h-12 w-px bg-blue-300 -translate-x-1/2" />
+                  <div className="hidden lg:block absolute bottom-0 left-1/2 h-8 w-px bg-blue-300 -translate-x-1/2" />
                 )}
               </div>
             ))}
