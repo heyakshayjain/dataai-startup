@@ -54,7 +54,7 @@ const Process = () => {
         
         <div className="relative max-w-6xl mx-auto">
           {/* Timeline line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-2 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 transform -translate-y-1/2 rounded-full" />
+          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 transform -translate-y-1/2" />
           
           <div className="grid gap-8 lg:grid-cols-3">
             {steps.map((step, index) => (
@@ -62,26 +62,24 @@ const Process = () => {
                 key={index} 
                 className={`relative ${index % 2 === 0 ? 'lg:translate-y-12' : ''}`}
               >
-                {/* Connection lines */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-8 h-8 hidden lg:block">
+                {/* Connection dot */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 hidden lg:block">
                   <div className="w-full h-full bg-blue-600 rounded-full animate-pulse" />
-                  <div className="absolute top-1/2 left-1/2 w-4 h-4 bg-white rounded-full -translate-x-1/2 -translate-y-1/2" />
                 </div>
                 
-                <div className="group bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 animate-fade-in relative z-10">
+                <div className="group bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative z-10">
                   <div className="absolute -top-3 left-4 bg-blue-600 text-white text-sm font-semibold py-1 px-3 rounded-full">
                     {step.phase}
                   </div>
                   
-                  <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                    {step.icon}
+                  <div className="flex flex-col items-center">
+                    <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
+                      {step.icon}
+                    </div>
+                    
+                    <h3 className="text-xl font-semibold text-slate-900 mb-3 text-center">{step.title}</h3>
+                    <p className="text-slate-600 text-center">{step.description}</p>
                   </div>
-                  
-                  <h3 className="text-xl font-semibold text-slate-900 mb-3">{step.title}</h3>
-                  <p className="text-slate-600">{step.description}</p>
-                  
-                  {/* Bottom arrow */}
-                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-4 h-4 rotate-45 bg-white hidden lg:block" />
                 </div>
 
                 {/* Vertical connection lines */}
