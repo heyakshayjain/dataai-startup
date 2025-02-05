@@ -1,6 +1,6 @@
+
 import { ArrowRight, Brain, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -20,12 +20,16 @@ const Hero = () => {
             and make data-driven decisions for your business.
           </p>
           <div className="flex justify-center animate-fade-in delay-300">
-            <Link to="/contact">
+            <a 
+              href="https://calendly.com/heyakshayjain/30min" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               <Button size="lg" className="bg-blue-600 hover:bg-blue-700 group">
                 Book a Meeting
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
-            </Link>
+            </a>
           </div>
         </div>
       </div>
