@@ -10,6 +10,7 @@ const Header = () => {
           <Link to="/" className="text-2xl font-bold text-slate-900 dark:text-white">DalphoAI</Link>
           <nav className="hidden md:flex space-x-6">
             <Link to="/about" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">About</Link>
+            <a href="#services" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Services</a>
             <Link to="/blog" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Blog</Link>
             <Link to="/contact" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Contact</Link>
           </nav>
