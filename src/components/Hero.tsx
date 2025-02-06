@@ -1,6 +1,6 @@
-
 import { ArrowRight, Brain, Database } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   return (
@@ -12,8 +12,21 @@ const Hero = () => {
             <Brain className="h-12 w-12 text-blue-800 animate-fade-in delay-100" />
           </div>
           <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6 animate-fade-in">
-            Transform Your Data into
-            <span className="text-blue-600"> Actionable Insights</span>
+            <span>Transform Your </span>
+            <TypeAnimation
+              sequence={[
+                'Data into Insights',
+                2000,
+                'Business with AI',
+                2000,
+                'Future with Analytics',
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              className="text-blue-600"
+              repeat={Infinity}
+            />
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8 animate-fade-in delay-200">
             Leverage the power of AI and data analytics to drive growth, optimize operations,
