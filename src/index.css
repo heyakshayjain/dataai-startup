@@ -24,7 +24,7 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --ring: var(--primary);
     --radius: 0.5rem;
   }
  
@@ -62,4 +62,20 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.text-primary-color {
+  color: #9b87f5;
+}
+
+.bg-primary-color {
+  background-color: #9b87f5;
+}
+
+.hover\:bg-primary-color:hover {
+  background-color: #7E69AB;
+}
+
+.border-primary-color {
+  border-color: #9b87f5;
 }
