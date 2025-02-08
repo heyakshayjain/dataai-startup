@@ -1,5 +1,5 @@
 
-import { Brain, Cpu, Code, Robot } from "lucide-react";
+import { Brain, Cpu, Code, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -18,7 +18,7 @@ const solutions = [
     description: "Implement NLP solutions for text analysis, sentiment analysis, and more."
   },
   {
-    icon: Robot,
+    icon: Bot,
     title: "Computer Vision",
     description: "Create advanced image and video analysis solutions using deep learning."
   }
