@@ -2,26 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
-const testimonials = [
-  {
-    name: "Sarah Johnson",
-    role: "CTO at TechCorp",
-    content: "DataAI transformed our business analytics capabilities. Their machine learning solutions helped us increase efficiency by 40%.",
-    image: "/placeholder.svg"
-  },
-  {
-    name: "Michael Chen",
-    role: "Head of Data Science",
-    content: "The team's expertise in data engineering and AI automation has been invaluable. They delivered exactly what we needed.",
-    image: "/placeholder.svg"
-  },
-  {
-    name: "Emma Davis",
-    role: "Marketing Director",
-    content: "Their data analytics solutions provided us with actionable insights that directly improved our marketing ROI.",
-    image: "/placeholder.svg"
-  }
-];
+const testimonials = [];
 
 const Testimonials = () => {
   return (
@@ -53,7 +34,7 @@ const Testimonials = () => {
           </div>
         ) : (
           <div className="text-center">
-            <p className="text-slate-600 mb-4">No testimonials available at the moment.</p>
+            <p className="text-slate-600 mb-4">Coming Soon...</p>
             <Button className="bg-[#9b87f5] hover:bg-[#7E69AB]">Submit Testimony</Button>
           </div>
         )}
