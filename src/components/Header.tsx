@@ -1,6 +1,15 @@
+
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 
 const Header = () => {
   return (
@@ -8,9 +17,37 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-8">
           <Link to="/" className="text-2xl font-bold text-slate-900 dark:text-white">DalphoAI</Link>
-          <nav className="hidden md:flex space-x-6">
+          <nav className="hidden md:flex items-center space-x-6">
             <Link to="/about" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">About</Link>
-            <a href="#services" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Services</a>
+            
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5]">Services</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <div className="grid w-[400px] gap-3 p-4">
+                      <Link to="/services/data-engineering" className="block p-3 hover:bg-slate-100 rounded-md">
+                        <div className="text-sm font-medium text-slate-900">Data Engineering</div>
+                        <div className="text-sm text-slate-500">Build robust data pipelines and infrastructure</div>
+                      </Link>
+                      <Link to="/services/data-analytics" className="block p-3 hover:bg-slate-100 rounded-md">
+                        <div className="text-sm font-medium text-slate-900">Data Analytics</div>
+                        <div className="text-sm text-slate-500">Transform raw data into meaningful insights</div>
+                      </Link>
+                      <Link to="/services/machine-learning" className="block p-3 hover:bg-slate-100 rounded-md">
+                        <div className="text-sm font-medium text-slate-900">Machine Learning</div>
+                        <div className="text-sm text-slate-500">Implement AI models that learn and improve</div>
+                      </Link>
+                      <Link to="/services/ai-automation" className="block p-3 hover:bg-slate-100 rounded-md">
+                        <div className="text-sm font-medium text-slate-900">AI Automation</div>
+                        <div className="text-sm text-slate-500">Automate tasks with intelligent solutions</div>
+                      </Link>
+                    </div>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
             <Link to="/blog" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Blog</Link>
             <Link to="/contact" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Contact</Link>
           </nav>

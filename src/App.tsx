@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -11,6 +12,10 @@ import Contact from "./pages/Contact";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
+import DataEngineering from "./pages/services/DataEngineering";
+import DataAnalytics from "./pages/services/DataAnalytics";
+import MachineLearning from "./pages/services/MachineLearning";
+import AIAutomation from "./pages/services/AIAutomation";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +31,10 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/services/data-engineering" element={<DataEngineering />} />
+            <Route path="/services/data-analytics" element={<DataAnalytics />} />
+            <Route path="/services/machine-learning" element={<MachineLearning />} />
+            <Route path="/services/ai-automation" element={<AIAutomation />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

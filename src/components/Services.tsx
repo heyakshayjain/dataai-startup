@@ -1,26 +1,33 @@
+
 import { ChartBar, Brain, Database, Cog } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const services = [
   {
     icon: Database,
     title: "Data Engineering",
-    description: "Build robust data pipelines and infrastructure to handle your data at any scale."
+    description: "Build robust data pipelines and infrastructure to handle your data at any scale.",
+    link: "/services/data-engineering"
   },
   {
     icon: ChartBar,
     title: "Data Analytics",
-    description: "Transform raw data into meaningful insights with advanced analytics solutions."
+    description: "Transform raw data into meaningful insights with advanced analytics solutions.",
+    link: "/services/data-analytics"
   },
   {
     icon: Brain,
     title: "Machine Learning",
-    description: "Implement AI models that learn and improve from your data automatically."
+    description: "Implement AI models that learn and improve from your data automatically.",
+    link: "/services/machine-learning"
   },
   {
     icon: Cog,
     title: "AI Automation",
-    description: "Automate repetitive tasks and workflows with intelligent AI solutions."
+    description: "Automate repetitive tasks and workflows with intelligent AI solutions.",
+    link: "/services/ai-automation"
   }
 ];
 
@@ -39,11 +46,18 @@ const Services = () => {
             <Card key={service.title} className="group hover:shadow-lg transition-shadow duration-300 border border-slate-200">
               <CardHeader>
                 <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center group-hover:bg-blue-100 transition-colors mb-4">
-                  <service.icon className="h-6 w-6 text-blue-600" />
+                  <service.icon className="h-6 w-6 text-[#9b87f5]" />
                 </div>
                 <CardTitle className="text-xl mb-2 text-slate-900">{service.title}</CardTitle>
                 <CardDescription className="text-slate-600">{service.description}</CardDescription>
               </CardHeader>
+              <CardContent>
+                <Link to={service.link}>
+                  <Button variant="outline" className="w-full mt-4 text-[#9b87f5] border-[#9b87f5] hover:bg-[#9b87f5] hover:text-white">
+                    Learn More
+                  </Button>
+                </Link>
+              </CardContent>
             </Card>
           ))}
         </div>

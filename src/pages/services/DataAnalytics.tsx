@@ -1,0 +1,51 @@
+
+import { ChartBar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
+const DataAnalytics = () => {
+  return (
+    <div className="min-h-screen pt-24 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-12 w-12 rounded-lg bg-blue-50 flex items-center justify-center">
+              <ChartBar className="h-6 w-6 text-[#9b87f5]" />
+            </div>
+            <h1 className="text-4xl font-bold text-slate-900">Data Analytics</h1>
+          </div>
+          
+          <div className="prose max-w-none">
+            <p className="text-lg text-slate-600 mb-6">
+              Transform your raw data into actionable insights with our comprehensive data analytics services. We help organizations make data-driven decisions with confidence.
+            </p>
+            
+            <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Our Analytics Solutions</h2>
+            <ul className="space-y-4 text-slate-600">
+              <li>Business Intelligence Dashboards</li>
+              <li>Predictive Analytics</li>
+              <li>Customer Behavior Analysis</li>
+              <li>Performance Metrics Tracking</li>
+              <li>Data Visualization</li>
+            </ul>
+
+            <h2 className="text-2xl font-semibold text-slate-900 mt-8 mb-4">Benefits</h2>
+            <p className="text-slate-600 mb-6">
+              Our analytics solutions help you understand trends, identify opportunities, and make informed decisions that drive business growth and efficiency.
+            </p>
+
+            <div className="mt-8">
+              <Link to="/contact">
+                <Button className="bg-[#9b87f5] hover:bg-[#7E69AB]">
+                  Get Started
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DataAnalytics;
