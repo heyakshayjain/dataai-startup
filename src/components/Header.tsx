@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -13,12 +13,18 @@ import {
 } from "@/components/ui/navigation-menu";
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center space-x-8">
           <Link to="/" className="text-2xl font-bold text-slate-900 dark:text-white">DalfoAI</Link>
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className={`md:flex items-center space-x-6 ${menuOpen ? "block" : "hidden"}`}>
             <Link to="/about" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">About</Link>
             
             <NavigationMenu>
@@ -59,7 +65,7 @@ const Header = () => {
               Contact Us
             </Button>
           </Link>
-          <Button variant="ghost" size="icon" className="md:hidden">
+          <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
             <Menu className="h-6 w-6" />
           </Button>
         </div>
