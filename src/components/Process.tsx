@@ -17,7 +17,7 @@ const Process = () => {
     {
       icon: <FileSignature className="w-12 h-12 text-primary" />,
       title: "Proposal & Agreement",
-      description: "Create customized proposal and finalize partnership agreement",
+      description: "Create a customized proposal and finalize partnership agreement",
       phase: "Phase 3",
     },
     {
@@ -35,7 +35,7 @@ const Process = () => {
     {
       icon: <HeartHandshake className="w-12 h-12 text-primary" />,
       title: "Delivery & Support",
-      description: "Deliver solution and provide ongoing support",
+      description: "Deliver solutions and provide ongoing support",
       phase: "Phase 6",
     },
   ];
@@ -84,15 +84,6 @@ const Process = () => {
                     <p className="text-gray-600 text-center">{step.description}</p>
                   </div>
                 </div>
-
-                {/* Vertical connection lines */}
-                {index % 3 === 0 ? (
-                  <div className="hidden lg:block absolute top-0 left-1/2 h-8 w-px bg-primary-light -translate-x-1/2" />
-                ) : index % 3 === 1 ? (
-                  null
-                ) : (
-                  <div className="hidden lg:block absolute bottom-0 left-1/2 h-8 w-px bg-primary-light -translate-x-1/2" />
-                )}
               </div>
             ))}
           </div>
