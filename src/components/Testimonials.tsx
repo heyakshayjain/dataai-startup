@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const testimonials = [];
 
@@ -35,7 +36,9 @@ const Testimonials = () => {
         ) : (
           <div className="text-center">
             <p className="text-slate-600 mb-4">Coming Soon...</p>
-            <Button className="bg-[#9b87f5] hover:bg-[#7E69AB]">Submit Testimony</Button>
+            <Link to="/submit-testimony">
+              <Button className="bg-[#9b87f5] hover:bg-[#7E69AB]">Submit Testimony</Button>
+            </Link>
           </div>
         )}
       </div>
