@@ -18,6 +18,9 @@ const Index = () => {
         <Process />
         <Testimonials />
         <FAQ />
+        <a href="contact.html" className="text-blue-500 hover:underline">
+          Contact Us
+        </a>
       </main>
       <Footer />
     </div>
