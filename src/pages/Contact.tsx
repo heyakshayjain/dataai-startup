@@ -1,6 +1,53 @@
+import React, { useState } from "react";
 import Header from "@/components/Header";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState(""); // To track the submission status
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission
+
+    const form = e.target;
+    const formDataToSubmit = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+        },
+        body: formDataToSubmit,
+      });
+
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        setStatus("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus("Something went wrong. Please try again.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -65,9 +112,9 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Static Contact Form */}
+            {/* Contact Form */}
             <div className="bg-white shadow-lg rounded-2xl p-8">
-              <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+              <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
                 <input type="hidden" name="form-name" value="contact" />
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
@@ -77,6 +124,8 @@ const Contact = () => {
                     type="text"
                     name="name"
                     id="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200"
                     placeholder="John Doe"
                     required
@@ -91,6 +140,8 @@ const Contact = () => {
                     type="email"
                     name="email"
                     id="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200"
                     placeholder="john@example.com"
                     required
@@ -105,6 +156,8 @@ const Contact = () => {
                     name="message"
                     id="message"
                     rows={6}
+                    value={formData.message}
+                    onChange={handleInputChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition duration-200 resize-none"
                     placeholder="How can we help you?"
                     required
@@ -118,6 +171,7 @@ const Contact = () => {
                   Send Message
                 </button>
               </form>
+              {status && <p className="mt-4 text-center text-lg">{status}</p>}
             </div>
           </div>
         </div>
