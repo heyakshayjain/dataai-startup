@@ -68,7 +68,10 @@ const Contact = () => {
 
             {/* Static Contact Form */}
             <div className="bg-white shadow-lg rounded-2xl p-8">
-              <form className="space-y-6" action="#" method="POST">
+              <form name="contact" method="POST" data-netlify="true" className="space-y-6">
+                  <input type="hidden" name="form-name" value="contact" />
+
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-text mb-2">
                     Full Name
