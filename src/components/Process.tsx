@@ -52,17 +52,7 @@ const Process = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto">
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {steps.map((step, index) => (
-              <div 
-                key={index} 
-                className={`relative ${
-                  index % 3 === 0 ? 'lg:-translate-y-8' : 
-                  index % 3 === 1 ? '' : 
-                  'lg:translate-y-8'
-                }`}
-              >
+
                 {/* Connection dot */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 hidden lg:block">
                   <div className="w-full h-full bg-primary rounded-full animate-pulse" />
