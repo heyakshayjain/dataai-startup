@@ -52,8 +52,6 @@ const Process = () => {
         </div>
         
         <div className="relative max-w-6xl mx-auto">
-          {/* Timeline line */}
-          <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary-light via-primary to-primary-dark transform -translate-y-1/2" />
           
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {steps.map((step, index) => (
@@ -94,3 +92,7 @@ const Process = () => {
 };
 
 export default Process;
+
+
+
+
