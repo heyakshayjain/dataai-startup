@@ -19,11 +19,11 @@ const ContactForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    // You can add form validation if needed
-
+    
+    setStatus('Sending...'); // Optional: Show sending status
+    
     try {
-      // Use fetch to send the form data to Netlify
+      // You only need this if you want to perform custom API logic. Otherwise, Netlify will handle the form
       const response = await fetch('/', {
         method: 'POST',
         headers: {
@@ -34,6 +34,7 @@ const ContactForm = () => {
 
       if (response.ok) {
         setStatus('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' }); // Clear form on success
       } else {
         setStatus('Something went wrong. Please try again.');
       }
@@ -46,12 +47,14 @@ const ContactForm = () => {
     <div>
       <h2>Contact Us</h2>
       <form
-        name="contact" // This is the name that Netlify uses to detect the form
+        name="contact" // This is the name Netlify uses to identify the form
         method="POST"
-        data-netlify="true" // Netlify form handling
+        data-netlify="true" // Required for Netlify form handling
         onSubmit={handleSubmit}
       >
+        {/* Hidden input for Netlify form identification */}
         <input type="hidden" name="form-name" value="contact" />
+
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -61,7 +64,7 @@ const ContactForm = () => {
           onChange={handleInputChange}
           required
         />
-        
+
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -71,7 +74,7 @@ const ContactForm = () => {
           onChange={handleInputChange}
           required
         />
-        
+
         <label htmlFor="message">Message</label>
         <textarea
           id="message"
@@ -84,6 +87,7 @@ const ContactForm = () => {
         <button type="submit">Send Message</button>
       </form>
 
+      {/* Display form submission status */}
       {status && <p>{status}</p>}
     </div>
   );
