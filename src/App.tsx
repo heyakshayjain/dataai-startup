@@ -16,7 +16,7 @@ import DataAnalytics from "./pages/services/DataAnalytics";
 import MachineLearning from "./pages/services/MachineLearning";
 import AIAutomation from "./pages/services/AIAutomation";
 import SubmitTestimonial from "./pages/SubmitTestimonial";
-import Services from './pages/Services';
+import Services from './components/Services';
 
 const queryClient = new QueryClient();
 
