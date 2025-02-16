@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -14,61 +15,99 @@ import {
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
+    setMenuOpen(!menuOpen);
   };
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+  };
+
+  const menuItems = [
+    { path: "/", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/blog", label: "Blog" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
     <header className="fixed w-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm z-50 shadow-sm">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex items-center space-x-8">
-          <Link to="/" className="text-2xl font-bold text-slate-900 dark:text-white">DalfoAI</Link>
-          <nav className={`md:flex items-center space-x-6 ${menuOpen ? "block" : "hidden"} md:block`}>
-            <Link to="/about" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">About</Link>
-            
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5]">Services</NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div className="grid w-[400px] gap-3 p-4">
-                      <Link to="/services/data-engineering" className="block p-3 hover:bg-slate-100 rounded-md">
-                        <div className="text-sm font-medium text-slate-900">Data Engineering</div>
-                        <div className="text-sm text-slate-500">Build robust data pipelines and infrastructure</div>
-                      </Link>
-                      <Link to="/services/data-analytics" className="block p-3 hover:bg-slate-100 rounded-md">
-                        <div className="text-sm font-medium text-slate-900">Data Analytics</div>
-                        <div className="text-sm text-slate-500">Transform raw data into meaningful insights</div>
-                      </Link>
-                      <Link to="/services/machine-learning" className="block p-3 hover:bg-slate-100 rounded-md">
-                        <div className="text-sm font-medium text-slate-900">Machine Learning</div>
-                        <div className="text-sm text-slate-500">Implement AI models that learn and improve</div>
-                      </Link>
-                      <Link to="/services/ai-automation" className="block p-3 hover:bg-slate-100 rounded-md">
-                        <div className="text-sm font-medium text-slate-900">AI Automation</div>
-                        <div className="text-sm text-slate-500">Automate tasks with intelligent solutions</div>
-                      </Link>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            <Link to="/blog" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Blog</Link>
-            <Link to="/contact" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] transition-colors">Contact</Link>
-          </nav>
-        </div>
-        <div className="flex items-center space-x-4">
-          <Link to="/contact">
-            <Button className="hidden md:inline-flex bg-[#9b87f5] hover:bg-[#7E69AB]">
-              Contact Us
-            </Button>
+      <div className="container mx-auto px-4 py-4">
+        <div className="flex justify-between items-center">
+          <Link to="/" className="text-2xl font-bold text-slate-900 dark:text-white">
+            DelfoAI
           </Link>
-          <Button variant="ghost" size="icon" className="md:hidden" onClick={toggleMenu}>
-            <Menu className="h-6 w-6" />
-          </Button>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {menuItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors ${
+                  location.pathname === item.path ? "text-[#9b87f5]" : ""
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <ThemeToggle />
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <div className="md:hidden flex items-center space-x-4">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleMenu}
+              className="text-slate-900 dark:text-white"
+            >
+              {menuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </Button>
+          </div>
         </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {menuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden"
+            >
+              <motion.nav
+                initial={{ y: -10 }}
+                animate={{ y: 0 }}
+                exit={{ y: -10 }}
+                className="flex flex-col py-4 space-y-4"
+              >
+                {menuItems.map((item) => (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    onClick={closeMenu}
+                    className={`px-4 py-2 text-lg text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors ${
+                      location.pathname === item.path 
+                        ? "bg-slate-100 dark:bg-gray-800 text-[#9b87f5]" 
+                        : ""
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </motion.nav>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );

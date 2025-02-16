@@ -2,19 +2,34 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const testimonials = [];
 
 const Testimonials = () => {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">What Our Clients Say</h2>
-          <p className="text-slate-600 max-w-2xl mx-auto">
-            Hear from organizations that have transformed their operations with our data and AI solutions
+        <motion.div 
+          className="text-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#7E69AB]">
+            What Our Clients Say
+          </h2>
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+            Hear from our satisfied clients about their experience working with us
           </p>
-        </div>
+          <Link to="/submit-testimonial">
+            <Button 
+              className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+            >
+              Submit Your Testimonial
+            </Button>
+          </Link>
+        </motion.div>
         {testimonials.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial) => (

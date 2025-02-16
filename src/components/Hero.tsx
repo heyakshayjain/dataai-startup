@@ -85,6 +85,7 @@ const Hero = () => {
           </motion.p>
           
           <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -101,6 +102,21 @@ const Hero = () => {
                 Contact Us
               </motion.span>
             </Link>
+            
+            <a 
+              href="https://calendly.com/delfoai/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-4 border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
+            >
+              <motion.span
+                className="inline-block"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Book a Meeting
+              </motion.span>
+            </a>
           </motion.div>
         </motion.div>
       </div>

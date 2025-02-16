@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -16,6 +15,7 @@ import DataEngineering from "./pages/services/DataEngineering";
 import DataAnalytics from "./pages/services/DataAnalytics";
 import MachineLearning from "./pages/services/MachineLearning";
 import AIAutomation from "./pages/services/AIAutomation";
+import SubmitTestimonial from "./pages/SubmitTestimonial";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +35,7 @@ const App = () => (
             <Route path="/services/data-analytics" element={<DataAnalytics />} />
             <Route path="/services/machine-learning" element={<MachineLearning />} />
             <Route path="/services/ai-automation" element={<AIAutomation />} />
+            <Route path="/submit-testimonial" element={<SubmitTestimonial />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

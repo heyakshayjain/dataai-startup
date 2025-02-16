@@ -17,6 +17,13 @@
       <input type="text" name="subject" />
       <textarea name="message"></textarea>
     </form>
+    <!-- Add this hidden form -->
+    <form name="testimonial" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="text" name="position" />
+      <input type="number" name="rating" />
+      <textarea name="testimonial"></textarea>
+    </form>
     <div id="root"></div>
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
