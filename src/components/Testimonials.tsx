@@ -23,9 +23,6 @@ const Testimonials = () => {
             Hear from our satisfied clients about their experience working with us
           </p>
           <p className="text-slate-600 dark:text-slate-300 mb-6">
-            Coming Soon
-          </p>
-          <p className="text-slate-600 dark:text-slate-300 mb-6">
             Share your experience with DelfoAI and help others make informed decisions
           </p>
           <Link to="/submit-testimonial">
@@ -55,7 +52,7 @@ const Testimonials = () => {
             ))}
           </div>
         ) : (
-          <p className="text-slate-600 dark:text-slate-300 text-center">No testimonials available at the moment.</p>
+          <p className="text-slate-600 dark:text-slate-300 text-center"></p>
         )}
       </div>
     </section>
