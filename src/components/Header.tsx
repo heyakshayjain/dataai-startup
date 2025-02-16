@@ -11,7 +11,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import Services from '../pages/Services';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
