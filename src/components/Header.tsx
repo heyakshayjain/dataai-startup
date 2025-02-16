@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -30,6 +30,7 @@ const Header = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About" },
     { path: "/blog", label: "Blog" },
+    { path: "/services", label: "Services" },
     { path: "/contact", label: "Contact" },
   ];
 
@@ -55,8 +56,8 @@ const Header = () => {
               </Link>
             ))}
             <div className="relative">
-              <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
-                Services
+              <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="flex items-center text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
+                Services <ChevronDown className="ml-1 h-4 w-4" />
               </button>
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded">
@@ -124,7 +125,7 @@ const Header = () => {
                 ))}
                 <div className="relative">
                   <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
-                    Services
+                    Services <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                   {isDropdownOpen && (
                     <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded">
