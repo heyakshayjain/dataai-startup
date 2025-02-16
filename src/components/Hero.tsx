@@ -90,22 +90,9 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <Link 
-              to="/contact"
-              className="inline-block px-8 py-4 bg-transparent border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-            >
-              <motion.span
-                className="inline-block"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Contact Us
-              </motion.span>
-            </Link>
-            
             <Button 
               onClick={() => window.open('https://cal.com/delfoai/30min', '_blank')}
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#9b87f5] text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 relative"
             >
               <motion.span
                 className="inline-block"
@@ -114,6 +101,13 @@ const Hero = () => {
               >
                 Book a Meeting
               </motion.span>
+              <motion.div
+                className="absolute right-[-30px] top-1/2 transform -translate-y-1/2"
+                animate={{ x: [0, 5, 0] }} // Animation for the arrow
+                transition={{ duration: 0.5, repeat: Infinity }}
+              >
+                <ArrowRight className="h-5 w-5" />
+              </motion.div>
             </Button>
           </motion.div>
         </motion.div>
