@@ -1,4 +1,4 @@
-import { Award, Coins, Settings, Workflow, Users, Handshake, Trophy, Heart, Scale3D } from "lucide-react";
+import { Award, Users, Handshake, Trophy, Heart, Scale3D } from "lucide-react";
 
 const WhyChooseUs = () => {
   const reasons = [
