@@ -17,6 +17,7 @@ import MachineLearning from "./pages/services/MachineLearning";
 import AIAutomation from "./pages/services/AIAutomation";
 import SubmitTestimonial from "./pages/SubmitTestimonial";
 import Services from './components/Services';
+import BookMeeting from './pages/BookMeeting';
 
 const queryClient = new QueryClient();
 
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/services/machine-learning" element={<MachineLearning />} />
             <Route path="/services/ai-automation" element={<AIAutomation />} />
             <Route path="/submit-testimonial" element={<SubmitTestimonial />} />
+            <Route path="/book-meeting" element={<BookMeeting />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Toaster />

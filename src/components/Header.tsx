@@ -16,6 +16,7 @@ import Services from '../pages/Services';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
 
   const toggleMenu = () => {
@@ -24,6 +25,7 @@ const Header = () => {
 
   const closeMenu = () => {
     setMenuOpen(false);
+    setDropdownOpen(false);
   };
 
   const menuItems = [
@@ -54,9 +56,25 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
-            <Link to="/services" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
-              Services
-            </Link>
+            <div className="relative">
+              <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
+                Services
+              </button>
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded">
+                  <Link to="/services/data-engineering" className="block px-4 py-2 hover:bg-gray-100">Data Engineering</Link>
+                  <Link to="/services/data-analytics" className="block px-4 py-2 hover:bg-gray-100">Data Analytics</Link>
+                  <Link to="/services/machine-learning" className="block px-4 py-2 hover:bg-gray-100">Machine Learning</Link>
+                  <Link to="/services/ai-automation" className="block px-4 py-2 hover:bg-gray-100">AI Automation</Link>
+                </div>
+              )}
+            </div>
+            <Button 
+              onClick={() => window.open('https://calendly.com/your-calendly-link', '_blank')}
+              className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+            >
+              Book a Meeting
+            </Button>
             <ThemeToggle />
           </nav>
 
@@ -92,7 +110,7 @@ const Header = () => {
                 initial={{ y: -10 }}
                 animate={{ y: 0 }}
                 exit={{ y: -10 }}
-                className="flex flex-col py-4 space-y-4"
+                className="flex flex-col py-4 space-y-4 bg-white dark:bg-gray-800 rounded shadow-lg"
               >
                 {menuItems.map((item) => (
                   <Link
@@ -101,16 +119,32 @@ const Header = () => {
                     onClick={closeMenu}
                     className={`px-4 py-2 text-lg text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors ${
                       location.pathname === item.path 
-                        ? "bg-slate-100 dark:bg-gray-800 text-[#9b87f5]" 
+                        ? "bg-slate-100 dark:bg-gray-700 text-[#9b87f5]" 
                         : ""
                     }`}
                   >
                     {item.label}
                   </Link>
                 ))}
-                <Link to="/services" onClick={closeMenu} className="px-4 py-2 text-lg text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
-                  Services
-                </Link>
+                <div className="relative">
+                  <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
+                    Services
+                  </button>
+                  {isDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded">
+                      <Link to="/services/data-engineering" className="block px-4 py-2 hover:bg-gray-100">Data Engineering</Link>
+                      <Link to="/services/data-analytics" className="block px-4 py-2 hover:bg-gray-100">Data Analytics</Link>
+                      <Link to="/services/machine-learning" className="block px-4 py-2 hover:bg-gray-100">Machine Learning</Link>
+                      <Link to="/services/ai-automation" className="block px-4 py-2 hover:bg-gray-100">AI Automation</Link>
+                    </div>
+                  )}
+                </div>
+                <Button 
+                  onClick={() => window.open('https://calendly.com/your-calendly-link', '_blank')}
+                  className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
+                >
+                  Book a Meeting
+                </Button>
               </motion.nav>
             </motion.div>
           )}
