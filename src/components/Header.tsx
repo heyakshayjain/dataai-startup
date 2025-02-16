@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "react-router-dom";
-import { ThemeToggle } from "./ThemeToggle";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   NavigationMenu,
@@ -70,17 +69,15 @@ const Header = () => {
               )}
             </div>
             <Button 
-              onClick={() => window.open('https://calendly.com/your-calendly-link', '_blank')}
+              onClick={() => window.open('https://cal.com/delfoai/30min', '_blank')}
               className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
             >
               Book a Meeting
             </Button>
-            <ThemeToggle />
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="icon"
@@ -140,7 +137,7 @@ const Header = () => {
                   )}
                 </div>
                 <Button 
-                  onClick={() => window.open('https://calendly.com/your-calendly-link', '_blank')}
+                  onClick={() => window.open('https://cal.com/delfoai/30min', '_blank')}
                   className="bg-[#9b87f5] hover:bg-[#7E69AB] text-white"
                 >
                   Book a Meeting

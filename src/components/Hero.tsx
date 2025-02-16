@@ -103,10 +103,8 @@ const Hero = () => {
               </motion.span>
             </Link>
             
-            <a 
-              href="https://calendly.com/delfoai/30min"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Button 
+              onClick={() => window.open('https://cal.com/delfoai/30min', '_blank')}
               className="inline-block px-8 py-4 border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl"
             >
               <motion.span
@@ -116,7 +114,7 @@ const Hero = () => {
               >
                 Book a Meeting
               </motion.span>
-            </a>
+            </Button>
           </motion.div>
         </motion.div>
       </div>
