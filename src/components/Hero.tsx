@@ -92,7 +92,7 @@ const Hero = () => {
           >
             <Link 
               to="/contact"
-              className="inline-block px-8 py-4 bg-[#9b87f5] hover:bg-[#7E69AB] text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-block px-8 py-4 bg-transparent border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <motion.span
                 className="inline-block"
@@ -105,7 +105,7 @@ const Hero = () => {
             
             <Button 
               onClick={() => window.open('https://cal.com/delfoai/30min', '_blank')}
-              className="inline-block px-8 py-4 border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="inline-block px-8 py-4 bg-transparent border-2 border-[#9b87f5] text-[#9b87f5] hover:bg-[#9b87f5] hover:text-white rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
             >
               <motion.span
                 className="inline-block"
