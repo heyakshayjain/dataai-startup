@@ -99,20 +99,6 @@ const ContactForm = () => {
                     <p className="text-slate-600 dark:text-slate-300">Mon-Fri 9am-6pm CET</p>
                   </div>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="bg-[#9b87f5]/10 p-3 rounded-lg">
-                    <Building className="h-6 w-6 text-[#9b87f5]" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-lg mb-1">Visit Us</h3>
-                    <p className="text-slate-600 dark:text-slate-300">
-                      Alexanderplatz 1<br />
-                      10178 Berlin, Germany
-                    </p>
-                  </div>
-                </div>
-
                 <div className="flex items-start space-x-4">
                   <div className="bg-[#9b87f5]/10 p-3 rounded-lg">
                     <Clock className="h-6 w-6 text-[#9b87f5]" />

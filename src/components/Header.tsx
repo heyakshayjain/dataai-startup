@@ -124,7 +124,7 @@ const Header = () => {
                   </Link>
                 ))}
                 <div className="relative">
-                  <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
+                  <button onClick={() => setDropdownOpen(!isDropdownOpen)} className="flex items-center text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
                     Services <ChevronDown className="ml-1 h-4 w-4" />
                   </button>
                   {isDropdownOpen && (
