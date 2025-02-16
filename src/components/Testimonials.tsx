@@ -11,7 +11,7 @@ const Testimonials = () => {
     <section className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="container mx-auto px-4">
         <motion.div 
-          className="text-center mb-12"
+          className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -19,8 +19,14 @@ const Testimonials = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-[#9b87f5] to-[#7E69AB]">
             What Our Clients Say
           </h2>
-          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-8">
+          <p className="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-4">
             Hear from our satisfied clients about their experience working with us
+          </p>
+          <p className="text-slate-600 dark:text-slate-300 mb-6">
+            Coming Soon
+          </p>
+          <p className="text-slate-600 dark:text-slate-300 mb-6">
+            Share your experience with DelfoAI and help others make informed decisions
           </p>
           <Link to="/submit-testimonial">
             <Button 
@@ -49,12 +55,7 @@ const Testimonials = () => {
             ))}
           </div>
         ) : (
-          <div className="text-center">
-            <p className="text-slate-600 mb-4">Coming Soon...</p>
-            <Link to="/submit-testimony">
-              <Button className="bg-[#9b87f5] hover:bg-[#7E69AB]">Submit Testimony</Button>
-            </Link>
-          </div>
+          <p className="text-slate-600 dark:text-slate-300 text-center">No testimonials available at the moment.</p>
         )}
       </div>
     </section>

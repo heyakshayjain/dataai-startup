@@ -16,6 +16,7 @@ import DataAnalytics from "./pages/services/DataAnalytics";
 import MachineLearning from "./pages/services/MachineLearning";
 import AIAutomation from "./pages/services/AIAutomation";
 import SubmitTestimonial from "./pages/SubmitTestimonial";
+import Services from './pages/Services';
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/services" element={<Services />} />
             <Route path="/services/data-engineering" element={<DataEngineering />} />
             <Route path="/services/data-analytics" element={<DataAnalytics />} />
             <Route path="/services/machine-learning" element={<MachineLearning />} />

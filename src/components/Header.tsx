@@ -12,6 +12,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import Services from '../pages/Services';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -53,6 +54,9 @@ const Header = () => {
                 {item.label}
               </Link>
             ))}
+            <Link to="/services" className="text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
+              Services
+            </Link>
             <ThemeToggle />
           </nav>
 
@@ -104,6 +108,9 @@ const Header = () => {
                     {item.label}
                   </Link>
                 ))}
+                <Link to="/services" onClick={closeMenu} className="px-4 py-2 text-lg text-slate-600 dark:text-slate-300 hover:text-[#9b87f5] dark:hover:text-[#9b87f5] transition-colors">
+                  Services
+                </Link>
               </motion.nav>
             </motion.div>
           )}
